@@ -8,13 +8,20 @@ import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 public class JokeServiceImpl implements JokeService {
 
 	private final ChuckNorrisQuotes chuckNorrisQuotes;
-	public JokeServiceImpl(ChuckNorrisQuotes chuckNorrisQuotes) {
+	private final ChuckNorrisQuotes otherChuckQuotes;
+	public JokeServiceImpl(ChuckNorrisQuotes chuckNorrisQuotes, ChuckNorrisQuotes otherChuckQuotes) {
 		this.chuckNorrisQuotes = chuckNorrisQuotes;
+		this.otherChuckQuotes = otherChuckQuotes;
 	}
 
 	@Override
 	public String getJoke() {
 		return chuckNorrisQuotes.getRandomQuote();
+	}
+
+	@Override
+	public String getOtherJoke() {
+		return otherChuckQuotes.getRandomQuote();
 	}
 
 }
